@@ -1,0 +1,191 @@
+:root {
+    --primary-blue: #0056b3;
+    --light-blue-bg: #f0f7ff;
+}
+
+body {
+    scroll-behavior: smooth;
+    color: #333;
+}
+
+/* Hero Section Personalizado */
+.hero-section {
+    background: linear-gradient(135deg, #ffffff 60%, var(--light-blue-bg) 40%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.heading-line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/* Tarjeta Flotante (Como en la imagen médica) */
+.hero-img-container {
+    position: relative;
+    display: inline-block;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    left: -20px;
+    width: 200px;
+    z-index: 10;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Estilos de Iconos */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-light-blue { background-color: var(--light-blue-bg); }
+
+/* Hover en las tarjetas */
+.skill-card {
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilos para la sección completa */
+.alternating-projects {
+    padding: 80px 0;
+    background-color: #f0f4f8; /* Un fondo suave para diferenciar la sección */
+}
+
+.alternating-projects .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.alternating-projects .underline {
+    width: 70px;
+    height: 5px;
+    background-color: #007bff;
+    margin: 0 auto 60px;
+    border-radius: 3px;
+}
+
+/* Estilo para cada fila de proyecto (imagen + texto) */
+.project-row {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el contenido */
+    margin-bottom: 60px; /* Espacio entre cada proyecto */
+    gap: 40px; /* Espacio entre la imagen y el texto */
+    flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+}
+
+/* Para alternar el orden de imagen/texto */
+.project-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Contenedor de la imagen */
+.project-media {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para la imagen antes de apilar */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    aspect-ratio: 4 / 3;
+}
+
+.project-media:hover {
+    transform: translateY(-8px);
+}
+
+.project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Contenedor de la descripción/texto */
+.project-description {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para el texto antes de apilar */
+    padding: 20px 0;
+}
+
+.project-description h3 {
+    font-size: 1.8rem;
+    color: #007bff; /* Color azul para los títulos de proyecto */
+    margin-bottom: 15px;
+}
+
+.project-description p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.project-description ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+.project-description ul li {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.project-description ul li::before {
+    content: "\f00c"; /* Icono de check de Font Awesome */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #28a745; /* Color verde para el check */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .project-row {
+        flex-direction: column; /* Apila imagen y texto en móviles */
+        text-align: center;
+    }
+    .project-row.reverse {
+        flex-direction: column; /* También apila en el caso inverso */
+    }
+    .project-description {
+        padding: 20px 0;
+    }
+    .project-description ul li {
+        text-align: left;
+    }
+}
